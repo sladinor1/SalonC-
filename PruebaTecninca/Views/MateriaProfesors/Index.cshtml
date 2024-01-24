@@ -1,0 +1,72 @@
+﻿@model IEnumerable<PruebaTecninca.Models.MateriaProfesor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+<h1>Lista de materias con sus profesores</h1>
+
+<p>
+    <a asp-action="Create">Crear</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MateriasId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfesoresId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MateriasId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfesoresId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+<style>
+    html {
+        height: 100%;
+    }
+
+    h1 {
+        color: white;
+    }
+
+    table {
+        color: white;
+    }
+
+    th {
+        color: white;
+    }
+
+    td {
+        color: white;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: linear-gradient(#141e30, #243b55);
+    }
+
+</style>
